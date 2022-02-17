@@ -1,13 +1,15 @@
-Name:           libmdbx
-Version:        0.11.4.0
-Release:        1%{?dist}
-Summary:        LibMDBX
+%{!?target_ver:         %global target_ver          0.11.4}
+%{!?target_minor_ver:   %global target_minor_ver    0}
+Name:       libmdbx
+Version:    %{target_ver}.%{target_minor_ver}
+Release:    1%{?dist}
+Summary:    LibMDBX: An amazingly fast key-value database library
 
-License:        OpenLDAP Public License Version 2.8
-URL:            https://github.com/erthink/libmdbx
-Source0:        https://github.com/erthink/libmdbx/releases/download/v0.11.4/libmdbx-amalgamated-0.11.4.tar.gz
+License:    OpenLDAP Public License Version 2.8
+URL:        https://github.com/erthink/libmdbx
+Source0:    https://github.com/erthink/libmdbx/releases/download/v%{target_ver}/libmdbx-amalgamated-%{target_ver}.tar.gz
 
-BuildRequires:  cmake, gcc, gcc-c++
+BuildRequires:  cmake, gcc, gcc-c++, binutils
 
 %description
 libmdbx is an extremely fast, compact, powerful, embedded, transactional
@@ -16,17 +18,17 @@ properties and capabilities, focused on creating unique lightweight solutions
 with extraordinary performance.
 
 
-%package        devel
-Summary:        Development files for %{name}
-Requires:       %{name}%{?_isa} = %{version}-%{release}
+%package    devel
+Summary:    Development files for %{name}
+Requires:   %{name}%{?_isa} = %{version}-%{release}
 
 %description    devel
 The %{name}-devel package contains libraries and header files for developing
 applications that use %{name}.
 
 
-%package	utils
-Summary:	%{name} utilities
+%package    utils
+Summary:    %{name} utilities
 Requires:   %{name}%{?_isa} = %{version}-%{release}
 
 %description    utils
@@ -72,5 +74,7 @@ find %{buildroot} -name '*.la' -exec rm -f {} ';'
 
 
 %changelog
+* Wed Feb 16 2022 Kai Wetlesen <kaiw@semiotic.ai>
+- Revised spec
 * Tue Feb 08 2022 Kai Wetlesen <kaiw@semiotic.ai>
 - Initial specification file
