@@ -10,7 +10,7 @@ URL:        https://github.com/erthink/libmdbx
 Source0:    https://github.com/erthink/libmdbx/releases/download/v%{target_ver}/libmdbx-amalgamated-%{target_ver}.tar.gz
 
 Requires: libomp
-BuildRequires:  cmake, gcc, gcc-c++, binutils, libomp-devel
+BuildRequires:  cmake, gcc, gcc-c++, binutils, libomp, libomp-devel
 
 %description
 libmdbx is an extremely fast, compact, powerful, embedded, transactional
