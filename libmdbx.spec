@@ -9,8 +9,8 @@ License:    OpenLDAP Public License Version 2.8
 URL:        https://github.com/erthink/libmdbx
 Source0:    https://github.com/erthink/libmdbx/releases/download/v%{target_ver}/libmdbx-amalgamated-%{target_ver}.tar.gz
 
-Requires: libomp
-BuildRequires:  cmake, gcc, gcc-c++, binutils, libomp, libomp-devel
+Requires: libgomp
+BuildRequires:  cmake, gcc, gcc-c++, binutils, libgomp
 
 %description
 libmdbx is an extremely fast, compact, powerful, embedded, transactional
