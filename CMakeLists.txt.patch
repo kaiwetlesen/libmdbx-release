@@ -8,7 +8,7 @@
 +  set(SO_LIBRARY_VERSION "${MDBX_VERSION_MAJOR}.${MDBX_VERSION_MINOR}")
    add_library(mdbx SHARED ${LIBMDBX_SOURCES})
    set_target_properties(mdbx PROPERTIES PUBLIC_HEADER "${LIBMDBX_PUBLIC_HEADERS}")
-+  set_target_properties(mdbx PROPERTIES VERSION "${LIBRARY_VERSION}" SOVERSION "${SO_VERSION}")
++  set_target_properties(mdbx PROPERTIES VERSION "${LIBRARY_VERSION}" SOVERSION "${SO_LIBRARY_VERSION}")
    target_compile_definitions(mdbx PRIVATE LIBMDBX_EXPORTS MDBX_BUILD_SHARED_LIBRARY=1 INTERFACE LIBMDBX_IMPORTS)
    target_setup_options(mdbx)
    libmdbx_setup_libs(mdbx PRIVATE)
