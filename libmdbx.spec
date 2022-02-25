@@ -2,7 +2,7 @@
 %{!?target_minor_ver:   %global target_minor_ver    0}
 Name:       libmdbx
 Version:    %{target_ver}.%{target_minor_ver}
-Release:    2
+Release:    3%{?dist}
 Summary:    An amazingly fast key-value database library
 
 License:    OpenLDAP
@@ -75,14 +75,14 @@ find %{buildroot} -name '*.la' -exec rm -f {} ';'
 
 
 %changelog
-* Thu Feb 24 2022 Kai Wetlesen <kaiw@semiotic.ai> - 0.11.4.0-3
+* Thu Feb 24 2022 Kai Wetlesen <kaiw@semiotic.ai> - 0.11.4.0-3%{?dist}
 - Implemented library versioning
 
-* Thu Feb 24 2022 Kai Wetlesen <kaiw@semiotic.ai> - 0.11.4.0-2
+* Thu Feb 24 2022 Kai Wetlesen <kaiw@semiotic.ai> - 0.11.4.0-2%{?dist}
 - Resolved rpmlint issues, improved building
 
-* Wed Feb 16 2022 Kai Wetlesen <kaiw@semiotic.ai> - 0.11.4.0-1
+* Wed Feb 16 2022 Kai Wetlesen <kaiw@semiotic.ai> - 0.11.4.0-1%{?dist}
 - Revised spec to utilise cmake macros
 
-* Tue Feb 08 2022 Kai Wetlesen <kaiw@semiotic.ai> - 0.11.4.0-0
+* Tue Feb 08 2022 Kai Wetlesen <kaiw@semiotic.ai> - 0.11.4.0-0%{?dist}
 - Initial specification file
