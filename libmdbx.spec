@@ -2,10 +2,10 @@
 %{!?target_minor_ver:   %global target_minor_ver    0}
 Name:       libmdbx
 Version:    %{target_ver}.%{target_minor_ver}
-Release:    1%{?dist}
-Summary:    LibMDBX: An amazingly fast key-value database library
+Release:    2
+Summary:    An amazingly fast key-value database library
 
-License:    OpenLDAP Public License Version 2.8
+License:    OpenLDAP
 URL:        https://github.com/erthink/libmdbx
 Source0:    https://github.com/erthink/libmdbx/releases/download/v%{target_ver}/libmdbx-amalgamated-%{target_ver}.tar.gz
 
@@ -74,7 +74,11 @@ find %{buildroot} -name '*.la' -exec rm -f {} ';'
 
 
 %changelog
-* Wed Feb 16 2022 Kai Wetlesen <kaiw@semiotic.ai>
-- Revised spec
-* Tue Feb 08 2022 Kai Wetlesen <kaiw@semiotic.ai>
+* Thu Feb 24 2022 Kai Wetlesen <kaiw@semiotic.ai> - 0.11.4.0-2
+- Resolved rpmlint issues, improved building
+
+* Wed Feb 16 2022 Kai Wetlesen <kaiw@semiotic.ai> - 0.11.4.0-1
+- Revised spec to utilise cmake macros
+
+* Tue Feb 08 2022 Kai Wetlesen <kaiw@semiotic.ai> - 0.11.4.0-0
 - Initial specification file
