@@ -1,4 +1,9 @@
+# Globals description:
+# Target SO Version (target_sover): Indicates the current library version.
+# Target Version (target_sover): Indicates the current shared-object ABI version, should correspond to major version of the library.
+# Target Minor Version (target_minor_ver): Indicates a minor fix or patch to the library.
 %{!?target_ver:         %global target_ver          0.11.4}
+%{!?target_sover:       %global target_sover        0}
 %{!?target_minor_ver:   %global target_minor_ver    0}
 Name:       libmdbx
 Version:    %{target_ver}.%{target_minor_ver}
@@ -29,7 +34,7 @@ applications that use %{name}.
 
 
 %package    utils
-Summary:    %{name} utilities
+Summary:    Utilities for %{name}
 Requires:   %{name}%{?_isa} = %{version}-%{release}
 
 %description    utils
@@ -51,7 +56,7 @@ The %{name}-utils package contains utilities for maintaining %{name} data files.
 %__cp LICENSE %{buildroot}%{_datadir}/licenses/%{name}/
 %__cp README.md %{buildroot}%{_datadir}/doc/%{name}/
 %__cp ChangeLog.md %{buildroot}%{_datadir}/doc/%{name}/
-find %{buildroot} -name '*.la' -exec rm -f {} ';'
+%__gzip %{buildroot}%{_mandir}/man1/mdbx_*
 
 
 %{?ldconfig_scriptlets}
@@ -60,18 +65,20 @@ find %{buildroot} -name '*.la' -exec rm -f {} ';'
 %files
 %license LICENSE
 %doc README.md ChangeLog.md
-%{_libdir}/*
+%{_libdir}/%{name}.so.%{target_sover}
+%{_libdir}/%{name}.so.%{target_ver}
 
 %files devel
 %license LICENSE
 %doc README.md ChangeLog.md
 %{_includedir}/*
+%{_libdir}/%{name}.so
 
 %files utils
 %license LICENSE
 %doc README.md ChangeLog.md
 %{_bindir}/*
-%{_mandir}/*
+%{_mandir}/man1/*
 
 
 %changelog
