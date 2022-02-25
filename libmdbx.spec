@@ -8,6 +8,7 @@ Summary:    An amazingly fast key-value database library
 License:    OpenLDAP
 URL:        https://github.com/erthink/libmdbx
 Source0:    https://github.com/erthink/libmdbx/releases/download/v%{target_ver}/libmdbx-amalgamated-%{target_ver}.tar.gz
+Patch0:     https://raw.githubusercontent.com/kaiwetlesen/libmdbx-release/v0.0.1/CMakeLists.txt.patch
 
 BuildRequires:  cmake, gcc, gcc-c++, binutils
 
@@ -74,6 +75,9 @@ find %{buildroot} -name '*.la' -exec rm -f {} ';'
 
 
 %changelog
+* Thu Feb 24 2022 Kai Wetlesen <kaiw@semiotic.ai> - 0.11.4.0-3
+- Implemented library versioning
+
 * Thu Feb 24 2022 Kai Wetlesen <kaiw@semiotic.ai> - 0.11.4.0-2
 - Resolved rpmlint issues, improved building
 
