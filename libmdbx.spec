@@ -2,7 +2,7 @@
 # Target SO Version (target_sover): Indicates the current library version.
 # Target Version (target_sover): Indicates the current shared-object ABI version, should correspond to major version of the library.
 # Target Minor Version (target_minor_ver): Indicates a minor fix or patch to the library.
-%{!?target_ver:         %global target_ver          0.11.5}
+%{!?target_ver:         %global target_ver          0.11.6}
 %{!?target_sover:       %global target_sover        0}
 %{!?target_minor_ver:   %global target_minor_ver    0}
 Name:       libmdbx
@@ -82,6 +82,10 @@ The %{name}-utils package contains utilities for maintaining %{name} data files.
 
 
 %changelog
+* Thu Mar 24 2022 Kai Wetlesen <kaiw@semiotic.ai> - 0.11.6.0-0%{?dist}
+- Bumped libmdbx version to latest
+- Version bump addresses Linux kernel bug with kernel <= 4.19
+
 * Thu Feb 24 2022 Kai Wetlesen <kaiw@semiotic.ai> - 0.11.5.0-0%{?dist}
 - Bumped libmdbx version to latest
 
