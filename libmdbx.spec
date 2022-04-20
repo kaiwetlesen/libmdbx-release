@@ -7,21 +7,22 @@
 %{!?target_minor_ver:   %global target_minor_ver    0}
 Name:       libmdbx
 Version:    %{target_ver}.%{target_minor_ver}
-Release:    0%{?dist}
+Release:    1%{?dist}
 Summary:    An amazingly fast key-value database library
 
 License:    OpenLDAP
-URL:        https://github.com/erthink/libmdbx
-Source0:    https://github.com/erthink/libmdbx/releases/download/v%{target_ver}/libmdbx-amalgamated-%{target_ver}.tar.gz
+URL:        https://gitflic.ru/project/erthink/libmdbx
+Source0:	https://raw.githubusercontent.com/kaiwetlesen/libmdbx-release/main/amalgamated-sources/libmdbx-v0.11.6.tar.gz
 Patch0:     https://raw.githubusercontent.com/kaiwetlesen/libmdbx-release/v0.0.1/CMakeLists.txt.patch
 
-BuildRequires:  cmake, gcc, gcc-c++, binutils
+#BuildRequires:  git, cmake, gcc, gcc-c++, binutils
+#BuildRequires:  cmake, gcc, gcc-c++, binutils
 
 %description
-libmdbx is an extremely fast, compact, powerful, embedded, transactional
-key-value store database, with permissive license. MDBX has a specific set of
-properties and capabilities, focused on creating unique lightweight solutions
-with extraordinary performance.
+MDBX is an extremely fast, compact, powerful, embedded, transactional key-value
+store database, with permissive license. MDBX has a specific set of properties
+and capabilities, focused on creating unique lightweight solutions with
+extraordinary performance.
 
 
 %package    devel
@@ -82,6 +83,9 @@ The %{name}-utils package contains utilities for maintaining %{name} data files.
 
 
 %changelog
+* Wed Apr 20 2022 Kai Wetlesen <kaiw@semiotic.ai> - 0.11.6.0.1%{?dist}
+- Built new release based off GitFlic after Github's callous blanket shutdown of Russian developer accounts
+
 * Thu Mar 24 2022 Kai Wetlesen <kaiw@semiotic.ai> - 0.11.6.0-0%{?dist}
 - Bumped libmdbx version to latest
 - Version bump addresses Linux kernel bug with kernel <= 4.19
