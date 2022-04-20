@@ -5,18 +5,19 @@
 %{!?target_ver:         %global target_ver          0.11.6}
 %{!?target_sover:       %global target_sover        0}
 %{!?target_minor_ver:   %global target_minor_ver    0}
+%{!?suppl_ver:          %global suppl_ver           0.1.2}
 Name:       libmdbx
+Vendor:     Erthink
 Version:    %{target_ver}.%{target_minor_ver}
 Release:    1%{?dist}
 Summary:    An amazingly fast key-value database library
 
 License:    OpenLDAP
 URL:        https://gitflic.ru/project/erthink/libmdbx
-Source0:	https://raw.githubusercontent.com/kaiwetlesen/libmdbx-release/main/amalgamated-sources/libmdbx-v0.11.6.tar.gz
-Patch0:     https://raw.githubusercontent.com/kaiwetlesen/libmdbx-release/v0.0.1/CMakeLists.txt.patch
+Source0:    https://raw.githubusercontent.com/kaiwetlesen/%{name}-release/main/amalgamated-sources/%{name}-v%{target_ver}.tar.gz
+Patch0:     https://raw.githubusercontent.com/kaiwetlesen/%{name}-release/v%{suppl_ver}/CMakeLists.txt.patch
 
-#BuildRequires:  git, cmake, gcc, gcc-c++, binutils
-#BuildRequires:  cmake, gcc, gcc-c++, binutils
+BuildRequires:  cmake, gcc, gcc-c++, binutils
 
 %description
 MDBX is an extremely fast, compact, powerful, embedded, transactional key-value
