@@ -2,14 +2,14 @@
 # Target SO Version (target_sover): Indicates the current library version.
 # Target Version (target_sover): Indicates the current shared-object ABI version, should correspond to major version of the library.
 # Target Minor Version (target_minor_ver): Indicates a minor fix or patch to the library.
-%{!?target_ver:         %global target_ver          0.11.6}
+%{!?target_ver:         %global target_ver          0.11.7}
 %{!?target_sover:       %global target_sover        0}
 %{!?target_minor_ver:   %global target_minor_ver    0}
 %{!?suppl_ver:          %global suppl_ver           0.1.2}
 Name:       libmdbx
 Vendor:     Erthink
 Version:    %{target_ver}.%{target_minor_ver}
-Release:    1%{?dist}
+Release:    0%{?dist}
 Summary:    An amazingly fast key-value database library
 
 License:    OpenLDAP
@@ -84,6 +84,9 @@ The %{name}-utils package contains utilities for maintaining %{name} data files.
 
 
 %changelog
+* Thu Jun 29 2022 Kai Wetlesen <kaiw@semiotic.ai> - 0.11.7.0-0%{?dist}
+- Bumped libmdbx version to latest
+
 * Wed Apr 20 2022 Kai Wetlesen <kaiw@semiotic.ai> - 0.11.6.0.1%{?dist}
 - Built new release based off GitFlic after Github's callous blanket shutdown of Russian developer accounts
 
