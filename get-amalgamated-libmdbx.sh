@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Configurables:
-GIT_TAG='v0.11.7'
+GIT_TAG='v0.12.0'
 PKG_NAME='libmdbx'
 REPO_URL='https://gitflic.ru/project/erthink/libmdbx.git'
 WARNINGS_ARE_NOT_ERRORS='true'
