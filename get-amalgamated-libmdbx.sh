@@ -6,6 +6,11 @@ PKG_NAME='libmdbx'
 REPO_URL='https://gitflic.ru/project/erthink/libmdbx.git'
 WARNINGS_ARE_NOT_ERRORS='true'
 
+if [ -n "$1" ]; then
+	GIT_TAG=$1
+	echo "Building version $GIT_TAG"
+fi
+
 # Bail on error:
 set -e
 
