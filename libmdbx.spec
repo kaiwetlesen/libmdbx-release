@@ -1,20 +1,21 @@
 # Globals description:
-# Target SO Version (target_sover): Indicates the current library version.
-# Target Version (target_sover): Indicates the current shared-object ABI version, should correspond to major version of the library.
-# Target Minor Version (target_minor_ver): Indicates a minor fix or patch to the library.
-%{!?target_ver:         %global target_ver          0.12.0}
-%{!?target_sover:       %global target_sover        0}
-%{!?target_minor_ver:   %global target_minor_ver    0}
-%{!?suppl_ver:          %global suppl_ver           0.1.2}
+# Target Package Version (target_pkgver): Indicates the current library version.
+# Target SO Version (target_sover): Indicates the current shared-object ABI version, should correspond to major version of the library.
+# Target Minor Version (target_minor_pkgver): Indicates a minor fix or patch to the library.
+# Target Supplemental Version (target_suppl_ver): Indicates which version of the supplemental patches to use.
+%define pkgver       %{?target_pkgver}%{!?target_pkgver:0.12.0}
+%define sover        %{?target_sover}%{!?target_sover:0}
+%define minor_pkgver %{?target_minor_pkgver}%{!?target_minor_pkgver:0}
+%define suppl_ver    %{?target_suppl_ver}%{!?target_suppl_ver:0.1.2}
 Name:       libmdbx
 Vendor:     Erthink
-Version:    %{target_ver}.%{target_minor_ver}
+Version:    %{pkgver}.%{minor_pkgver}
 Release:    0%{?dist}
 Summary:    An amazingly fast key-value database library
 
 License:    OpenLDAP
 URL:        https://gitflic.ru/project/erthink/libmdbx
-Source0:    https://raw.githubusercontent.com/kaiwetlesen/%{name}-release/main/amalgamated-sources/%{name}-v%{target_ver}.tar.gz
+Source0:    https://raw.githubusercontent.com/kaiwetlesen/%{name}-release/main/amalgamated-sources/%{name}-v%{pkgver}.tar.gz
 Patch0:     https://raw.githubusercontent.com/kaiwetlesen/%{name}-release/v%{suppl_ver}/CMakeLists.txt.patch
 
 BuildRequires:  cmake, gcc, gcc-c++, binutils
@@ -67,8 +68,8 @@ The %{name}-utils package contains utilities for maintaining %{name} data files.
 %files
 %license LICENSE
 %doc README.md ChangeLog.md
-%{_libdir}/%{name}.so.%{target_sover}
-%{_libdir}/%{name}.so.%{target_ver}
+%{_libdir}/%{name}.so.%{sover}
+%{_libdir}/%{name}.so.%{pkgver}
 
 %files devel
 %license LICENSE
