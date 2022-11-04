@@ -3,7 +3,7 @@
 # Target SO Version (target_sover): Indicates the current shared-object ABI version, should correspond to major version of the library.
 # Target Minor Version (target_minor_pkgver): Indicates a minor fix or patch to the library.
 # Target Supplemental Version (target_suppl_ver): Indicates which version of the supplemental patches to use.
-%define pkgver       %{?target_pkgver}%{!?target_pkgver:0.11.9}
+%define pkgver       %{?target_pkgver}%{!?target_pkgver:0.12.1}
 %define sover        %{?target_sover}%{!?target_sover:0}
 %define minor_pkgver %{?target_minor_pkgver}%{!?target_minor_pkgver:0}
 %define suppl_ver    %{?target_suppl_ver}%{!?target_suppl_ver:0.1.2}
@@ -85,6 +85,9 @@ The %{name}-utils package contains utilities for maintaining %{name} data files.
 
 
 %changelog
+* Fri Nov 04 2022 Kai Wetlesen <kaiw@semiotic.ai> - 0.12.1.0-0%{?dist}
+- Bumped libmdbx version to latest
+
 * Fri Jun 29 2022 Kai Wetlesen <kaiw@semiotic.ai> - 0.12.0.0-0%{?dist}
 - Bumped libmdbx version to latest
 
